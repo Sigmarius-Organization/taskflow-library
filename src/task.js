@@ -7,6 +7,7 @@ class Task {
         this.status = 'todo';
         this.createdAt = new Date();
 	this.priority = 'medium';
+        this.labels = [];
     }
 
     setPriority(priority) {
@@ -16,6 +17,13 @@ class Task {
             return true;
         }
         return false;
+	this.labels = [];
+    }
+
+    addLabel(label) {
+        if (label && !this.labels.includes(label)) {
+            this.labels.push(label);
+        }
     }
 
     updateStatus(status) {
